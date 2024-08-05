@@ -1,0 +1,7 @@
+FROM golang:1.22
+
+RUN apt-get update && apt-get install build-essential librdkafka-dev -y
+
+WORKDIR /app
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
