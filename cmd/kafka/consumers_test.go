@@ -24,6 +24,11 @@ func TestGetDesiredConsumersQuantity(t *testing.T) {
 }
 
 func TestGetDesiredConsumersQuantity_DefaultValue(t *testing.T) {
+	err := os.Unsetenv(config.KafkaConsumerQuantity)
+	if err != nil {
+		require.Failf(t, err.Error(), "Not able to unset env %v", config.KafkaConsumerQuantity)
+	}
+
 	var defaultQuantity uint64 = 3
 	quantity := getDesiredConsumersQuantity()
 	if quantity != defaultQuantity {
