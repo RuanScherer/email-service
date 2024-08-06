@@ -1,6 +1,9 @@
 name: ci-go
 
-on: [push]
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   check-app:
