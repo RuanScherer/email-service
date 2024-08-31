@@ -10,6 +10,8 @@ FROM ubuntu:latest
 
 COPY --from=build /app/email-service .
 
-RUN apt-get update && apt-get install build-essential librdkafka-dev -y
+RUN apt-get update \
+  && apt-get install build-essential librdkafka-dev -y \
+  && apt-get clean
 
 ENTRYPOINT ["./email-service"]
